@@ -26,7 +26,12 @@ namespace RemotePatientCareInterface.Forms
 
         private void SerumLoadFull_Click(object sender, EventArgs e)
         {
-            
+            SerumLevel.Width = 0;
+        }
+
+        private void SerumLevel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

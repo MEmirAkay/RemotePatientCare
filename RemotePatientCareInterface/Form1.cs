@@ -8,8 +8,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
 using System.Net.Sockets;
 using System.IO;
+using System.Threading;
 
 namespace RemotePatientCareInterface
 {
@@ -24,13 +26,56 @@ namespace RemotePatientCareInterface
         {
             InitializeComponent();
             CollapseMenu();
-
+            
+            //Connect("192.168.1.124","hello");
         }
+
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsh, int wParam, int lParam);
+
+
+        
+
+        static void Connect(String server, String message)
+        {
+            try
+            {
+                Int32 port = 1234;
+                TcpClient client = new TcpClient(server, port);
+
+                Byte[] data = Encoding.ASCII.GetBytes(message);
+
+                NetworkStream stream = client.GetStream();
+
+                stream.Write(data, 0, data.Length);
+
+                Console.WriteLine("Sent: {0}", message);
+ 
+                data = new Byte[1024];
+
+                String responseData = String.Empty;
+
+                Int32 bytes = stream.Read(data, 0, data.Length);
+                responseData = Encoding.ASCII.GetString(data, 0, bytes);
+                Console.WriteLine("Received: {0}", responseData);
+                
+                stream.Close();
+                client.Close();
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine("ArgumentNullException: {0}", e);
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine("SocketException: {0}", e);
+            }
+
+        }
+
 
         private void ActivateButton(object btnSender)
         {
@@ -246,6 +291,6 @@ namespace RemotePatientCareInterface
 
         }
 
-        
+       
     }
 }

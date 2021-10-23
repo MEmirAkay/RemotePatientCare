@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.HomeHeader = new System.Windows.Forms.Panel();
             this.TempLabel = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
-            this.SerumLevelFull = new System.Windows.Forms.PictureBox();
-            this.SerumLevelLow = new System.Windows.Forms.PictureBox();
+            this.TempLevel = new System.Windows.Forms.PictureBox();
+            this.SerumLevelRed = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -44,12 +45,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.TempratureText = new System.Windows.Forms.Label();
             this.HomeHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SerumLevelFull)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SerumLevelLow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TempLevel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SerumLevelRed)).BeginInit();
             this.SuspendLayout();
             // 
             // HomeHeader
@@ -107,27 +109,28 @@
             this.iconPictureBox2.TabIndex = 3;
             this.iconPictureBox2.TabStop = false;
             // 
-            // SerumLevelFull
+            // TempLevel
             // 
-            this.SerumLevelFull.BackColor = System.Drawing.Color.White;
-            this.SerumLevelFull.ErrorImage = null;
-            this.SerumLevelFull.InitialImage = null;
-            this.SerumLevelFull.Location = new System.Drawing.Point(119, 98);
-            this.SerumLevelFull.Name = "SerumLevelFull";
-            this.SerumLevelFull.Size = new System.Drawing.Size(200, 500);
-            this.SerumLevelFull.TabIndex = 5;
-            this.SerumLevelFull.TabStop = false;
+            this.TempLevel.BackColor = System.Drawing.Color.White;
+            this.TempLevel.ErrorImage = null;
+            this.TempLevel.InitialImage = null;
+            this.TempLevel.Location = new System.Drawing.Point(119, 98);
+            this.TempLevel.Name = "TempLevel";
+            this.TempLevel.Size = new System.Drawing.Size(200, 500);
+            this.TempLevel.TabIndex = 5;
+            this.TempLevel.TabStop = false;
+            this.TempLevel.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.TempLevel_LoadCompleted);
             // 
-            // SerumLevelLow
+            // SerumLevelRed
             // 
-            this.SerumLevelLow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(59)))), ((int)(((byte)(87)))));
-            this.SerumLevelLow.ErrorImage = null;
-            this.SerumLevelLow.InitialImage = null;
-            this.SerumLevelLow.Location = new System.Drawing.Point(119, 98);
-            this.SerumLevelLow.Name = "SerumLevelLow";
-            this.SerumLevelLow.Size = new System.Drawing.Size(200, 500);
-            this.SerumLevelLow.TabIndex = 4;
-            this.SerumLevelLow.TabStop = false;
+            this.SerumLevelRed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(59)))), ((int)(((byte)(87)))));
+            this.SerumLevelRed.ErrorImage = null;
+            this.SerumLevelRed.InitialImage = null;
+            this.SerumLevelRed.Location = new System.Drawing.Point(119, 98);
+            this.SerumLevelRed.Name = "SerumLevelRed";
+            this.SerumLevelRed.Size = new System.Drawing.Size(200, 500);
+            this.SerumLevelRed.TabIndex = 4;
+            this.SerumLevelRed.TabStop = false;
             // 
             // button3
             // 
@@ -220,21 +223,21 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Corbel Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(325, 98);
+            this.label4.Location = new System.Drawing.Point(325, 76);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 36);
+            this.label4.Size = new System.Drawing.Size(81, 36);
             this.label4.TabIndex = 15;
-            this.label4.Text = "-High";
+            this.label4.Text = "- 50 C";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Corbel Light", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(337, 558);
+            this.label6.Location = new System.Drawing.Point(325, 573);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 36);
+            this.label6.Size = new System.Drawing.Size(62, 36);
             this.label6.TabIndex = 17;
-            this.label6.Text = "-Low";
+            this.label6.Text = "-0 C";
             // 
             // label5
             // 
@@ -246,22 +249,19 @@
             this.label5.TabIndex = 18;
             this.label5.Text = "Current Tempraure:";
             // 
-            // iconButton2
+            // timer1
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
-            this.iconButton2.Enabled = false;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Corbel Light", 24F);
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.Color.Black;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(514, 558);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(225, 83);
-            this.iconButton2.TabIndex = 19;
-            this.iconButton2.Text = "25 C";
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // TempratureText
+            // 
+            this.TempratureText.AutoSize = true;
+            this.TempratureText.Font = new System.Drawing.Font("Corbel", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TempratureText.Location = new System.Drawing.Point(525, 558);
+            this.TempratureText.Name = "TempratureText";
+            this.TempratureText.Size = new System.Drawing.Size(178, 78);
+            this.TempratureText.TabIndex = 20;
+            this.TempratureText.Text = "None";
             // 
             // TempForm
             // 
@@ -269,7 +269,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(216)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1082, 667);
-            this.Controls.Add(this.iconButton2);
+            this.Controls.Add(this.TempratureText);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
@@ -280,20 +280,21 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.SerumLevelFull);
-            this.Controls.Add(this.SerumLevelLow);
+            this.Controls.Add(this.TempLevel);
+            this.Controls.Add(this.SerumLevelRed);
             this.Controls.Add(this.iconPictureBox2);
             this.Controls.Add(this.iconPictureBox1);
             this.Controls.Add(this.HomeHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TempForm";
             this.Text = "TempForm";
+            this.Load += new System.EventHandler(this.TempForm_Load);
             this.HomeHeader.ResumeLayout(false);
             this.HomeHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SerumLevelFull)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SerumLevelLow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TempLevel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SerumLevelRed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,8 +306,8 @@
         private System.Windows.Forms.Label TempLabel;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
-        private System.Windows.Forms.PictureBox SerumLevelFull;
-        private System.Windows.Forms.PictureBox SerumLevelLow;
+        private System.Windows.Forms.PictureBox TempLevel;
+        private System.Windows.Forms.PictureBox SerumLevelRed;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
@@ -317,6 +318,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label TempratureText;
     }
 }

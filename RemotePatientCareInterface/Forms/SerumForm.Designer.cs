@@ -91,6 +91,7 @@
             this.SerumLevel.Size = new System.Drawing.Size(200, 500);
             this.SerumLevel.TabIndex = 3;
             this.SerumLevel.TabStop = false;
+            this.SerumLevel.Click += new System.EventHandler(this.SerumLevel_Click);
             // 
             // SerumLoadFull
             // 
