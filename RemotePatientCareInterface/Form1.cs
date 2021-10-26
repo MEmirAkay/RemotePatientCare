@@ -291,6 +291,9 @@ namespace RemotePatientCareInterface
 
         }
 
-       
+        private void WelcomePicture_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

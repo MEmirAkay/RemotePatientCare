@@ -77,5 +77,6 @@
 
         private System.Windows.Forms.Panel MotionHeader;
         private System.Windows.Forms.Label MotionLabel;
+        
     }
 }

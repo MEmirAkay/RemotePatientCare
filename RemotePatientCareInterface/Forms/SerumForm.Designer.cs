@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SerumForm));
             this.SerumHeader = new System.Windows.Forms.Panel();
             this.SerumLabel = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.SerumDrainHalf = new System.Windows.Forms.Button();
             this.SerumDrainQuarter = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.SerumHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SerumLevelBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SerumLevel)).BeginInit();
@@ -91,7 +93,6 @@
             this.SerumLevel.Size = new System.Drawing.Size(200, 500);
             this.SerumLevel.TabIndex = 3;
             this.SerumLevel.TabStop = false;
-            this.SerumLevel.Click += new System.EventHandler(this.SerumLevel_Click);
             // 
             // SerumLoadFull
             // 
@@ -194,6 +195,10 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Current Serum Level";
             // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // SerumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,5 +240,6 @@
         private System.Windows.Forms.Button SerumDrainHalf;
         private System.Windows.Forms.Button SerumDrainQuarter;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer2;
     }
 }

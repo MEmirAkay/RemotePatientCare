@@ -120,6 +120,7 @@
             this.TempLevel.TabIndex = 5;
             this.TempLevel.TabStop = false;
             this.TempLevel.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.TempLevel_LoadCompleted);
+            this.TempLevel.Click += new System.EventHandler(this.TempLevel_Click);
             // 
             // SerumLevelRed
             // 

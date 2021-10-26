@@ -8,15 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace RemotePatientCareInterface.Forms
 {
     public partial class MotionForm : Form
     {
         public MotionForm()
-        {
+        {            
             InitializeComponent();
+
         }
 
-       
+        
     }
 }

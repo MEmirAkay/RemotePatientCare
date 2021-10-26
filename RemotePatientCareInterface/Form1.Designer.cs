@@ -288,7 +288,6 @@
             this.panelDesktopPanel.Name = "panelDesktopPanel";
             this.panelDesktopPanel.Size = new System.Drawing.Size(1098, 706);
             this.panelDesktopPanel.TabIndex = 2;
-            
             // 
             // WelcomePicture
             // 
@@ -301,6 +300,7 @@
             this.WelcomePicture.Size = new System.Drawing.Size(254, 264);
             this.WelcomePicture.TabIndex = 2;
             this.WelcomePicture.TabStop = false;
+            this.WelcomePicture.Click += new System.EventHandler(this.WelcomePicture_Click);
             // 
             // IntroductionParagraph
             // 

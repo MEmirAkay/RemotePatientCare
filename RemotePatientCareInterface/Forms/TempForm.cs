@@ -36,10 +36,7 @@ namespace RemotePatientCareInterface.Forms
 
         static string Connect(String server, String message)
         {
-            try
-            {
-
-            }
+           
                 Int32 port = 1234;
                 TcpClient client = new TcpClient(server, port);
 
@@ -64,13 +61,13 @@ namespace RemotePatientCareInterface.Forms
 
                 stream.Close();
                 client.Close();
-                }
-               return TempRes;
-            
-            
-          
 
-            
+                return TempRes;
+           
+
+
+
+
         }
 
         private void SensorChanges()
@@ -109,10 +106,12 @@ namespace RemotePatientCareInterface.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
             SensorChanges();
         }
 
-        
+        private void TempLevel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
