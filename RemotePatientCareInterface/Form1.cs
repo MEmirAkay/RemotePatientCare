@@ -13,6 +13,7 @@ using System.Net.Sockets;
 using System.IO;
 using System.Threading;
 
+
 namespace RemotePatientCareInterface
 {
     public partial class Form1 : Form
@@ -242,11 +243,16 @@ namespace RemotePatientCareInterface
             }
 
         }
+
+       
+
+
                 
         private void Home_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
             OpenChildForm(new Forms.HomeForm());
+            
         }
 
         private void Serum_Click(object sender, EventArgs e)
@@ -279,7 +285,7 @@ namespace RemotePatientCareInterface
             {
                 currentChildForm.Close();
             }
-
+            
             currentChildForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;

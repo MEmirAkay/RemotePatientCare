@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LightHeader = new System.Windows.Forms.Panel();
             this.LightLabel = new System.Windows.Forms.Label();
             this.LightPicture = new FontAwesome.Sharp.IconPictureBox();
@@ -35,14 +36,16 @@
             this.CurrentLightIntensty = new System.Windows.Forms.Label();
             this.SetLightIntensty = new System.Windows.Forms.Label();
             this.OnOffLight = new System.Windows.Forms.Label();
-            this.SerumLevelFull = new System.Windows.Forms.PictureBox();
+            this.LightLevel = new System.Windows.Forms.PictureBox();
             this.SerumLevelLow = new System.Windows.Forms.PictureBox();
             this.UpLightIntensty = new FontAwesome.Sharp.IconButton();
-            this.SettingLightIntensty = new FontAwesome.Sharp.IconButton();
+            this.LightIntenstyStatus = new FontAwesome.Sharp.IconButton();
             this.DownLightIntensty = new FontAwesome.Sharp.IconButton();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.LightText = new System.Windows.Forms.Label();
             this.LightHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LightPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SerumLevelFull)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LightLevel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SerumLevelLow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +83,7 @@
             this.LightPicture.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.LightPicture.IconSize = 178;
             this.LightPicture.ImageLocation = "";
-            this.LightPicture.Location = new System.Drawing.Point(432, 197);
+            this.LightPicture.Location = new System.Drawing.Point(432, 220);
             this.LightPicture.Name = "LightPicture";
             this.LightPicture.Size = new System.Drawing.Size(178, 194);
             this.LightPicture.TabIndex = 2;
@@ -133,25 +136,25 @@
             this.OnOffLight.TabIndex = 6;
             this.OnOffLight.Text = "On/Off";
             // 
-            // SerumLevelFull
+            // LightLevel
             // 
-            this.SerumLevelFull.BackColor = System.Drawing.Color.White;
-            this.SerumLevelFull.ErrorImage = null;
-            this.SerumLevelFull.InitialImage = null;
-            this.SerumLevelFull.Location = new System.Drawing.Point(87, 197);
-            this.SerumLevelFull.Name = "SerumLevelFull";
-            this.SerumLevelFull.Size = new System.Drawing.Size(158, 414);
-            this.SerumLevelFull.TabIndex = 8;
-            this.SerumLevelFull.TabStop = false;
+            this.LightLevel.BackColor = System.Drawing.Color.White;
+            this.LightLevel.ErrorImage = null;
+            this.LightLevel.InitialImage = null;
+            this.LightLevel.Location = new System.Drawing.Point(87, 142);
+            this.LightLevel.Name = "LightLevel";
+            this.LightLevel.Size = new System.Drawing.Size(211, 469);
+            this.LightLevel.TabIndex = 8;
+            this.LightLevel.TabStop = false;
             // 
             // SerumLevelLow
             // 
             this.SerumLevelLow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(71)))), ((int)(((byte)(135)))));
             this.SerumLevelLow.ErrorImage = null;
             this.SerumLevelLow.InitialImage = null;
-            this.SerumLevelLow.Location = new System.Drawing.Point(87, 197);
+            this.SerumLevelLow.Location = new System.Drawing.Point(87, 142);
             this.SerumLevelLow.Name = "SerumLevelLow";
-            this.SerumLevelLow.Size = new System.Drawing.Size(158, 414);
+            this.SerumLevelLow.Size = new System.Drawing.Size(211, 469);
             this.SerumLevelLow.TabIndex = 7;
             this.SerumLevelLow.TabStop = false;
             // 
@@ -169,22 +172,23 @@
             this.UpLightIntensty.Size = new System.Drawing.Size(256, 95);
             this.UpLightIntensty.TabIndex = 9;
             this.UpLightIntensty.UseVisualStyleBackColor = true;
+            this.UpLightIntensty.Click += new System.EventHandler(this.UpLightIntensty_Click);
             // 
-            // SettingLightIntensty
+            // LightIntenstyStatus
             // 
-            this.SettingLightIntensty.Enabled = false;
-            this.SettingLightIntensty.FlatAppearance.BorderSize = 0;
-            this.SettingLightIntensty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SettingLightIntensty.Font = new System.Drawing.Font("Corbel Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.SettingLightIntensty.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.SettingLightIntensty.IconColor = System.Drawing.Color.Black;
-            this.SettingLightIntensty.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.SettingLightIntensty.Location = new System.Drawing.Point(762, 277);
-            this.SettingLightIntensty.Name = "SettingLightIntensty";
-            this.SettingLightIntensty.Size = new System.Drawing.Size(256, 160);
-            this.SettingLightIntensty.TabIndex = 10;
-            this.SettingLightIntensty.Text = "Low";
-            this.SettingLightIntensty.UseVisualStyleBackColor = true;
+            this.LightIntenstyStatus.Enabled = false;
+            this.LightIntenstyStatus.FlatAppearance.BorderSize = 0;
+            this.LightIntenstyStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LightIntenstyStatus.Font = new System.Drawing.Font("Corbel Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LightIntenstyStatus.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.LightIntenstyStatus.IconColor = System.Drawing.Color.Black;
+            this.LightIntenstyStatus.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.LightIntenstyStatus.Location = new System.Drawing.Point(762, 277);
+            this.LightIntenstyStatus.Name = "LightIntenstyStatus";
+            this.LightIntenstyStatus.Size = new System.Drawing.Size(256, 160);
+            this.LightIntenstyStatus.TabIndex = 10;
+            this.LightIntenstyStatus.Text = "Low";
+            this.LightIntenstyStatus.UseVisualStyleBackColor = true;
             // 
             // DownLightIntensty
             // 
@@ -200,6 +204,21 @@
             this.DownLightIntensty.Size = new System.Drawing.Size(256, 95);
             this.DownLightIntensty.TabIndex = 11;
             this.DownLightIntensty.UseVisualStyleBackColor = true;
+            this.DownLightIntensty.Click += new System.EventHandler(this.DownLightIntensty_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // LightText
+            // 
+            this.LightText.AutoSize = true;
+            this.LightText.Font = new System.Drawing.Font("Corbel Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LightText.Location = new System.Drawing.Point(484, 142);
+            this.LightText.Name = "LightText";
+            this.LightText.Size = new System.Drawing.Size(85, 39);
+            this.LightText.TabIndex = 12;
+            this.LightText.Text = "None";
             // 
             // LightForm
             // 
@@ -207,10 +226,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(216)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1082, 667);
+            this.Controls.Add(this.LightText);
             this.Controls.Add(this.DownLightIntensty);
-            this.Controls.Add(this.SettingLightIntensty);
+            this.Controls.Add(this.LightIntenstyStatus);
             this.Controls.Add(this.UpLightIntensty);
-            this.Controls.Add(this.SerumLevelFull);
+            this.Controls.Add(this.LightLevel);
             this.Controls.Add(this.SerumLevelLow);
             this.Controls.Add(this.OnOffLight);
             this.Controls.Add(this.SetLightIntensty);
@@ -224,7 +244,7 @@
             this.LightHeader.ResumeLayout(false);
             this.LightHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LightPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SerumLevelFull)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LightLevel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SerumLevelLow)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -240,10 +260,12 @@
         private System.Windows.Forms.Label CurrentLightIntensty;
         private System.Windows.Forms.Label SetLightIntensty;
         private System.Windows.Forms.Label OnOffLight;
-        private System.Windows.Forms.PictureBox SerumLevelFull;
+        private System.Windows.Forms.PictureBox LightLevel;
         private System.Windows.Forms.PictureBox SerumLevelLow;
         private FontAwesome.Sharp.IconButton UpLightIntensty;
-        private FontAwesome.Sharp.IconButton SettingLightIntensty;
+        private FontAwesome.Sharp.IconButton LightIntenstyStatus;
         private FontAwesome.Sharp.IconButton DownLightIntensty;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label LightText;
     }
 }

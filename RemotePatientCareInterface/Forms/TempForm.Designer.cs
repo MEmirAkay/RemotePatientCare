@@ -35,9 +35,9 @@
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.TempLevel = new System.Windows.Forms.PictureBox();
             this.SerumLevelRed = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.FanHigh = new System.Windows.Forms.Button();
+            this.FanMed = new System.Windows.Forms.Button();
+            this.FanLow = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -47,6 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.TempratureText = new System.Windows.Forms.Label();
+            this.FanOFF = new System.Windows.Forms.Button();
             this.HomeHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
@@ -133,47 +134,50 @@
             this.SerumLevelRed.TabIndex = 4;
             this.SerumLevelRed.TabStop = false;
             // 
-            // button3
+            // FanHigh
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(151)))), ((int)(((byte)(255)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Corbel Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Location = new System.Drawing.Point(813, 373);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(195, 64);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "High";
-            this.button3.UseVisualStyleBackColor = true;
+            this.FanHigh.FlatAppearance.BorderSize = 0;
+            this.FanHigh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(151)))), ((int)(((byte)(255)))));
+            this.FanHigh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(170)))), ((int)(((byte)(255)))));
+            this.FanHigh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FanHigh.Font = new System.Drawing.Font("Corbel Light", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.FanHigh.Location = new System.Drawing.Point(813, 352);
+            this.FanHigh.Name = "FanHigh";
+            this.FanHigh.Size = new System.Drawing.Size(195, 65);
+            this.FanHigh.TabIndex = 8;
+            this.FanHigh.Text = "High";
+            this.FanHigh.UseVisualStyleBackColor = true;
+            this.FanHigh.Click += new System.EventHandler(this.FanHigh_Click);
             // 
-            // button4
+            // FanMed
             // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Corbel Light", 24F);
-            this.button4.Location = new System.Drawing.Point(813, 467);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(195, 64);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Medium";
-            this.button4.UseVisualStyleBackColor = true;
+            this.FanMed.FlatAppearance.BorderSize = 0;
+            this.FanMed.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.FanMed.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(241)))), ((int)(((byte)(255)))));
+            this.FanMed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FanMed.Font = new System.Drawing.Font("Corbel Light", 24F);
+            this.FanMed.Location = new System.Drawing.Point(813, 423);
+            this.FanMed.Name = "FanMed";
+            this.FanMed.Size = new System.Drawing.Size(195, 48);
+            this.FanMed.TabIndex = 9;
+            this.FanMed.Text = "Medium";
+            this.FanMed.UseVisualStyleBackColor = true;
+            this.FanMed.Click += new System.EventHandler(this.FanMed_Click);
             // 
-            // button5
+            // FanLow
             // 
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(255)))), ((int)(((byte)(133)))));
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(255)))), ((int)(((byte)(214)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Corbel Light", 24F);
-            this.button5.Location = new System.Drawing.Point(813, 558);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(195, 64);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "Low";
-            this.button5.UseVisualStyleBackColor = true;
+            this.FanLow.FlatAppearance.BorderSize = 0;
+            this.FanLow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(255)))), ((int)(((byte)(133)))));
+            this.FanLow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(255)))), ((int)(((byte)(214)))));
+            this.FanLow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FanLow.Font = new System.Drawing.Font("Corbel Light", 24F);
+            this.FanLow.Location = new System.Drawing.Point(811, 487);
+            this.FanLow.Name = "FanLow";
+            this.FanLow.Size = new System.Drawing.Size(195, 47);
+            this.FanLow.TabIndex = 10;
+            this.FanLow.Text = "Low";
+            this.FanLow.UseVisualStyleBackColor = true;
+            this.FanLow.Click += new System.EventHandler(this.FanLow_Click);
             // 
             // label1
             // 
@@ -209,6 +213,7 @@
             this.iconButton1.Size = new System.Drawing.Size(184, 118);
             this.iconButton1.TabIndex = 13;
             this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // label3
             // 
@@ -264,12 +269,28 @@
             this.TempratureText.TabIndex = 20;
             this.TempratureText.Text = "None";
             // 
+            // FanOFF
+            // 
+            this.FanOFF.FlatAppearance.BorderSize = 0;
+            this.FanOFF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(255)))), ((int)(((byte)(133)))));
+            this.FanOFF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(255)))), ((int)(((byte)(214)))));
+            this.FanOFF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FanOFF.Font = new System.Drawing.Font("Corbel Light", 24F);
+            this.FanOFF.Location = new System.Drawing.Point(811, 562);
+            this.FanOFF.Name = "FanOFF";
+            this.FanOFF.Size = new System.Drawing.Size(195, 47);
+            this.FanOFF.TabIndex = 21;
+            this.FanOFF.Text = "Fan OFF";
+            this.FanOFF.UseVisualStyleBackColor = true;
+            this.FanOFF.Click += new System.EventHandler(this.FanOFF_Click);
+            // 
             // TempForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(216)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(1082, 667);
+            this.Controls.Add(this.FanOFF);
             this.Controls.Add(this.TempratureText);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -278,9 +299,9 @@
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.FanLow);
+            this.Controls.Add(this.FanMed);
+            this.Controls.Add(this.FanHigh);
             this.Controls.Add(this.TempLevel);
             this.Controls.Add(this.SerumLevelRed);
             this.Controls.Add(this.iconPictureBox2);
@@ -309,9 +330,9 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
         private System.Windows.Forms.PictureBox TempLevel;
         private System.Windows.Forms.PictureBox SerumLevelRed;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button FanHigh;
+        private System.Windows.Forms.Button FanMed;
+        private System.Windows.Forms.Button FanLow;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private FontAwesome.Sharp.IconButton iconButton1;
@@ -321,5 +342,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label TempratureText;
+        private System.Windows.Forms.Button FanOFF;
     }
 }

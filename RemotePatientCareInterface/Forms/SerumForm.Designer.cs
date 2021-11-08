@@ -124,6 +124,7 @@
             this.SerumLoadHalf.TabIndex = 5;
             this.SerumLoadHalf.Text = "Fill 50%";
             this.SerumLoadHalf.UseVisualStyleBackColor = false;
+            this.SerumLoadHalf.Click += new System.EventHandler(this.SerumLoadHalf_Click);
             // 
             // SerumLoadQuarter
             // 
@@ -139,6 +140,7 @@
             this.SerumLoadQuarter.TabIndex = 6;
             this.SerumLoadQuarter.Text = "Fill 25%";
             this.SerumLoadQuarter.UseVisualStyleBackColor = false;
+            this.SerumLoadQuarter.Click += new System.EventHandler(this.SerumLoadQuarter_Click);
             // 
             // SerumDrainAll
             // 

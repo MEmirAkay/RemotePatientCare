@@ -81,21 +81,8 @@ namespace RemotePatientCareInterface.Forms
                     Console.WriteLine(serResp1);
                     SerumLevel.Height = serResp1;
 
-
-
                 }
-
-
-
             }
-
-
-
-        }
-
-        private void SerumLoadFull_Click(object sender, EventArgs e)
-        {
-            //SerumLevel.Height = 0;
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -103,5 +90,47 @@ namespace RemotePatientCareInterface.Forms
             SensorChanges2();
         }
 
+        private void FillSerum(int percent)
+        {
+            timer2.Stop();
+            if (percent == 1)
+            {
+                Console.WriteLine("Starting to fill");
+                Connect("192.168.1.124","fullSerum");
+                
+            }
+            else if (percent == 2)
+            {
+                Console.WriteLine("Starting to fill");
+                Connect("192.168.1.124", "halfSerum");
+                
+            }
+            else if (percent == 3)
+            {
+                Console.WriteLine("Starting to fill");
+                Connect("192.168.1.124", "quarterSerum");
+                
+
+            }
+            timer2.Start();
+        }
+
+        private void SerumLoadFull_Click(object sender, EventArgs e)
+        {
+            FillSerum(1);
+        }
+
+        
+
+        private void SerumLoadQuarter_Click(object sender, EventArgs e)
+        {
+            FillSerum(3);
+            
+        }
+
+        private void SerumLoadHalf_Click(object sender, EventArgs e)
+        {
+            FillSerum(2);
+        }
     }
 }
