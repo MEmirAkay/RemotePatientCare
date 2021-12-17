@@ -19,6 +19,9 @@ namespace RemotePatientCareInterface.Forms
             timer1.Start();
             
         }
+
+        
+
         static string Connect(String server, String message)
         {
 
@@ -58,19 +61,43 @@ namespace RemotePatientCareInterface.Forms
             if (day1 == "1")
             {
                 string lightResponse = Connect("192.168.1.124", "light");
+                string numericString = string.Empty;
+
+                foreach (var c in lightResponse)
+                {
+                    
+                    if ((c >= '0' && c <= '9') || (char.ToUpperInvariant(c) >= 'A' && char.ToUpperInvariant(c) <= 'F') || c == ' ')
+                    {
+                        numericString = string.Concat(numericString, c.ToString());
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
 
                 if (lightResponse != "None")
                 {
-                    float lightResp = float.Parse(lightResponse);
-                    int lightResp1 = (int)lightResp / 10;
+                    float lightResp = float.Parse(numericString);
+                    lightResp = Convert.ToInt64(lightResp);
 
-                    Console.WriteLine(lightResp);
-                    Console.WriteLine(lightResp1);
+                    if (lightResp >= 100)
+                        {
+                            lightResponse = lightResponse.Remove(3);
+                            
+                        }
+                        else if (lightResp < 10)
+                        {
+                            lightResponse = lightResponse.Remove(1);
+                        }
+                        else if (lightResp >= 10)
+                        {
+                            lightResponse = lightResponse.Remove(2);
+                        }
 
                     LightText.Text = lightResponse;
-
-                    LightLevel.Height = 500 - (lightResp1 * 10);
-
+                    LightLevel.Height =  500 - (int)lightResp * 5;
+                          
                 }
                 else
                 {
@@ -89,56 +116,90 @@ namespace RemotePatientCareInterface.Forms
             timer1.Stop();
             if (lightControl == 0)
             {
-                LightIntenstyStatus.Text = "Low";
-                Console.WriteLine("Light level 0");
-                Connect("192.168.1.124", "LightLvL_0");
+                LightIntenstyStatus.Text = "Off";
+                Console.WriteLine("Light Off");
+                Connect("192.168.1.124", "LightOff");
+                LightPicture.IconColor = Color.Black;
 
             }
             else if (lightControl == 1)
             {
-                LightIntenstyStatus.Text = "Medium";
-                Console.WriteLine("Light level 1");
-                Connect("192.168.1.124", "LightLvL_1");
-
+                LightIntenstyStatus.Text = "Low";
+                Console.WriteLine("Light Low");
+                Connect("192.168.1.124", "LightLow");
+                LightPicture.IconColor = Color.Aqua;
             }
             else if (lightControl == 2)
             {
-                LightIntenstyStatus.Text = "High";
-                Console.WriteLine("Light level 2");
-                Connect("192.168.1.124", "LightLvL_2");
-
-
+                LightIntenstyStatus.Text = "Medium";
+                Console.WriteLine("Light Medium");
+                Connect("192.168.1.124", "LightMed");
+                LightPicture.IconColor = Color.LimeGreen;
             }
-            else if (lightControl == 3)
+            else if(LightControl == 3)
             {
-                LightIntenstyStatus.Text = "Max";
-                Console.WriteLine("Light level 3");
-                Connect("192.168.1.124", "LightLvL_3");
-
-
-            }
+                LightIntenstyStatus.Text = "High";
+                Console.WriteLine("Light High");
+                Connect("192.168.1.124", "LightHigh");
+                LightPicture.IconColor = Color.Red;
+            }            
+            
             timer1.Start();
         }
 
 
 
         int LightControl = 0;
-        /*  0 = Low       / 3,3 V
-         *  1 = Medium    / 5   V
-         *  2 = High      / 8,3 V
-         *  3 = Max       / 10  V
+        /*  0 = Close       
+         *  1 = Low    
+         *  2 = Medium
+         *  3 = High
          */
 
+      
         private void UpLightIntensty_Click(object sender, EventArgs e)
         {
-            LightControl++;
-            LightCnt(LightControl);
+            if (LightControl < 3)
+            {
+                LightControl++;
+                LightCnt(LightControl);
+                
+            }
+            
         }
 
         private void DownLightIntensty_Click(object sender, EventArgs e)
         {
-            LightControl--;
-            LightCnt(LightControl);
+            if(LightControl > 0)
+            {
+                LightControl--;
+                LightCnt(LightControl);
+            }
+            
+        }
+
+        private void OnLamp_Click(object sender, EventArgs e)
+        {
+            if(LightControl == 0)
+            {
+                LightControl = 2;
+                LightCnt(LightControl);
+            }
+            else if(LightControl != 0)
+            {
+                LightControl = 0;
+                LightCnt(LightControl);
+            }
+        }
+
+        private void LightLevel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LightPicture_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

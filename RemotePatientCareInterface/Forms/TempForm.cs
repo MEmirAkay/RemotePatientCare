@@ -85,21 +85,11 @@ namespace RemotePatientCareInterface.Forms
                     Console.WriteLine(tempResp);
                     Console.WriteLine(tempResp1);
 
-
                     TempratureText.Text = tempResponse;
 
                     TempLevel.Height = 500 - (tempResp1 * 10);
-
-
-
                 }
-
-                
-
-            }
-            
-            
-            
+            }               
         }
 
         private void timer1_Tick(object sender, EventArgs e)

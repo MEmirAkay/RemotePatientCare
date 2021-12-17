@@ -77,9 +77,9 @@
             // 
             this.LightPicture.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.LightPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(216)))), ((int)(((byte)(224)))));
-            this.LightPicture.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LightPicture.ForeColor = System.Drawing.Color.Black;
             this.LightPicture.IconChar = FontAwesome.Sharp.IconChar.Lightbulb;
-            this.LightPicture.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LightPicture.IconColor = System.Drawing.Color.Black;
             this.LightPicture.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.LightPicture.IconSize = 178;
             this.LightPicture.ImageLocation = "";
@@ -88,6 +88,7 @@
             this.LightPicture.Size = new System.Drawing.Size(178, 194);
             this.LightPicture.TabIndex = 2;
             this.LightPicture.TabStop = false;
+            this.LightPicture.Click += new System.EventHandler(this.LightPicture_Click);
             // 
             // OnLamp
             // 
@@ -105,6 +106,7 @@
             this.OnLamp.Size = new System.Drawing.Size(178, 83);
             this.OnLamp.TabIndex = 3;
             this.OnLamp.UseVisualStyleBackColor = true;
+            this.OnLamp.Click += new System.EventHandler(this.OnLamp_Click);
             // 
             // CurrentLightIntensty
             // 
@@ -146,6 +148,7 @@
             this.LightLevel.Size = new System.Drawing.Size(211, 469);
             this.LightLevel.TabIndex = 8;
             this.LightLevel.TabStop = false;
+            this.LightLevel.Click += new System.EventHandler(this.LightLevel_Click);
             // 
             // SerumLevelLow
             // 
@@ -187,7 +190,7 @@
             this.LightIntenstyStatus.Name = "LightIntenstyStatus";
             this.LightIntenstyStatus.Size = new System.Drawing.Size(256, 160);
             this.LightIntenstyStatus.TabIndex = 10;
-            this.LightIntenstyStatus.Text = "Low";
+            this.LightIntenstyStatus.Text = "Off";
             this.LightIntenstyStatus.UseVisualStyleBackColor = true;
             // 
             // DownLightIntensty

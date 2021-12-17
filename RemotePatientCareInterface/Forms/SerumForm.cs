@@ -17,7 +17,9 @@ namespace RemotePatientCareInterface.Forms
         {
             InitializeComponent();
             timer2.Start();
+            
         }
+        int distance = 0;
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -62,7 +64,6 @@ namespace RemotePatientCareInterface.Forms
         {
             string day2 = DateTime.Now.ToString("fff");
             day2 = day2.Remove(1);
-            Console.WriteLine(day2);
             if (day2 == "1")
             {
                 string serResponse = Connect("192.168.1.124", "serum");
@@ -77,10 +78,9 @@ namespace RemotePatientCareInterface.Forms
                     Console.WriteLine(serResp1);
                     Console.WriteLine("-----------");
                     
-                    serResp1 = serResp1 * 25;
-                    Console.WriteLine(serResp1);
-                    SerumLevel.Height = serResp1;
-
+                    Console.WriteLine("Değer :" + serResp1);
+                    SerumLevel.Height = 500 - serResp1;
+                    distance = serResp1;
                 }
             }
         }
@@ -93,24 +93,67 @@ namespace RemotePatientCareInterface.Forms
         private void FillSerum(int percent)
         {
             timer2.Stop();
+            Console.WriteLine("Starting to fill");
+            Connect("192.168.1.124", "SerumFill");
+
             if (percent == 1)
             {
-                Console.WriteLine("Starting to fill");
-                Connect("192.168.1.124","fullSerum");
-                
+                while (distance > 1)
+                {
+                    SensorChanges2();
+                }
+                Connect("192.168.1.124", "SerumStop");
             }
             else if (percent == 2)
             {
-                Console.WriteLine("Starting to fill");
-                Connect("192.168.1.124", "halfSerum");
-                
+                while (distance > 5)
+                {
+                    SensorChanges2();
+                }
+                Connect("192.168.1.124", "SerumStop");
             }
             else if (percent == 3)
             {
-                Console.WriteLine("Starting to fill");
-                Connect("192.168.1.124", "quarterSerum");
-                
+                while (distance > 9)
+                {
+                    SensorChanges2();        
+                }
+                Connect("192.168.1.124", "SerumStop");
+            }
+            timer2.Start();
+        }
 
+        private void PourSerum(int Pourpercent)
+        {
+            timer2.Stop();
+            Console.WriteLine("Starting to Pour");
+            Connect("192.168.1.124", "SerumPour");
+
+            if (Pourpercent == 1)
+            {
+                while (distance < 2)
+                {
+                    SensorChanges2();
+                }
+                Connect("192.168.1.124", "SerumStop");
+
+            }
+            else if (Pourpercent == 2)
+            {
+                while (distance <= 5)
+                {
+                    SensorChanges2();
+                }
+                Connect("192.168.1.124", "SerumStop");
+
+            }
+            else if (Pourpercent == 3)
+            {
+                while (distance <= 9)
+                {
+                    SensorChanges2();
+                }
+                Connect("192.168.1.124", "SerumStop");
             }
             timer2.Start();
         }
@@ -131,6 +174,26 @@ namespace RemotePatientCareInterface.Forms
         private void SerumLoadHalf_Click(object sender, EventArgs e)
         {
             FillSerum(2);
+        }
+
+        private void SerumLevel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SerumDrainQuarter_Click(object sender, EventArgs e)
+        {
+            PourSerum(1);
+        }
+
+        private void SerumDrainHalf_Click(object sender, EventArgs e)
+        {
+            PourSerum(2);
+        }
+
+        private void SerumDrainAll_Click(object sender, EventArgs e)
+        {
+            PourSerum(3);
         }
     }
 }

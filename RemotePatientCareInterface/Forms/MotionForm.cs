@@ -83,5 +83,26 @@ namespace RemotePatientCareInterface.Forms
             Connect("192.168.1.124",Speach);
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string Speach = "SPC" + button1.Text;
+
+            Connect("192.168.1.124", Speach);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string Speach = "SPC" + button2.Text;
+
+            Connect("192.168.1.124", Speach);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string Speach = "SPC" + button3.Text;
+
+            Connect("192.168.1.124", Speach);
+        }
     }
 }

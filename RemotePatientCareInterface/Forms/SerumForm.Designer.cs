@@ -93,6 +93,7 @@
             this.SerumLevel.Size = new System.Drawing.Size(200, 500);
             this.SerumLevel.TabIndex = 3;
             this.SerumLevel.TabStop = false;
+            this.SerumLevel.Click += new System.EventHandler(this.SerumLevel_Click);
             // 
             // SerumLoadFull
             // 
@@ -156,6 +157,7 @@
             this.SerumDrainAll.TabIndex = 9;
             this.SerumDrainAll.Text = "Drain 100%";
             this.SerumDrainAll.UseVisualStyleBackColor = false;
+            this.SerumDrainAll.Click += new System.EventHandler(this.SerumDrainAll_Click);
             // 
             // SerumDrainHalf
             // 
@@ -171,6 +173,7 @@
             this.SerumDrainHalf.TabIndex = 8;
             this.SerumDrainHalf.Text = "Drain 50%";
             this.SerumDrainHalf.UseVisualStyleBackColor = false;
+            this.SerumDrainHalf.Click += new System.EventHandler(this.SerumDrainHalf_Click);
             // 
             // SerumDrainQuarter
             // 
@@ -186,6 +189,7 @@
             this.SerumDrainQuarter.TabIndex = 7;
             this.SerumDrainQuarter.Text = "Drain 25%";
             this.SerumDrainQuarter.UseVisualStyleBackColor = false;
+            this.SerumDrainQuarter.Click += new System.EventHandler(this.SerumDrainQuarter_Click);
             // 
             // label1
             // 
