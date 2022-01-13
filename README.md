@@ -19,7 +19,7 @@ the healing process of the patients.
 
 ## Hardware
 * Raspberry Pi 
-  ![](https://github.com/MEmirAkay/RemotePatientCare/blob/master/img/RaspberryPi.jpg)
+  ![](https://github.com/MEmirAkay/RemotePatientCare/blob/master/img/RaspberyyPi.jpg)
 * HCSR-04
   ![](https://github.com/MEmirAkay/RemotePatientCare/blob/master/img/hc-sr04.jpg)
 * BH1750
