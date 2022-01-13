@@ -19,12 +19,10 @@ the healing process of the patients.
 
 ## Hardware
 * Raspberry Pi 
-  ![](https://github.com/MEmirAkay/RemotePatientCare/blob/master/img/RaspberyyPi.jpg)
 * HCSR-04
-  ![](https://github.com/MEmirAkay/RemotePatientCare/blob/master/img/hc-sr04.jpg)
 * BH1750
-  ![](https://github.com/MEmirAkay/RemotePatientCare/blob/master/img/bh1750.jpg)
 * DHT11
-  ![](https://github.com/MEmirAkay/RemotePatientCare/blob/master/img/dht11.jpg)
 * Raspberry Pi Camera Module
-  ![](https://github.com/MEmirAkay/RemotePatientCare/blob/master/img/RaspiCam.jpg)
+
+### Attention
+You have to download libraries if you want to use this app.
